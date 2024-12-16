@@ -1,0 +1,43 @@
+body {
+    font-family: Poppins, sans-serif;
+  }
+
+  .expanded-content {
+    display: none;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .expanded {
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+
+  .cipher-code {
+    font-family: "Courier New", monospace;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    white-space: pre-wrap;
+  }
+
+  .quiz-completed {
+    background-image: url('path/to/your/check-icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#confettiCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}

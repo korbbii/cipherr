@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../src/output.css">
+  <link rel="stylesheet" href="../src/css.css">
+  <script src="../src/function.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body class="max-w-[1920px] mx-auto mt-16">
+
+  <!-- Navigation Bar -->
+   
+  <hr class="mt-32 my-12 border-gray-400" />  
+
+  <!-- Main Content -->
+  <div class="relative">
+    <div class="px-4 sm:px-10">
+      <div class="mt-16 max-w-4xl mx-auto text-center relative z-10">
+        <!-- Greeting Section -->
+        <p class="text-xl font-semibold mb-4">Hello, Codebreaker!</p>
+        <h1 class="md:text-6xl text-4xl font-extrabold mb-6 md:!leading-[75px]">Test Your Cipher Knowledge!</h1>
+        <p class="text-base">Are you ready to crack the code? Take our Cipher Quiz to challenge your skills in cryptography, encryption, and code-breaking. Prove you're a cipher expert!</p>
+        <div class="mt-10">
+          <button onclick="scrollToCard2()" class='px-6 py-3 rounded-xl text-white bg-cyan-900 transition-all hover:bg-cyan-800'>
+            Start the Challenge
+        </button>
+        </div>
+      </div>
+      <hr class="mt-16 my-12 border-gray-400" />
+      <div id="quizCards" class="mt-28 flex flex-col items-center mt-12 space-y-8">
+
+        <!-- Card 1  -->
+      <div id="card1" class="flex flex-col items-center bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all w-full max-w-2xl">
+          <h2 class="text-xl font-semibold mb-2">Quiz 1: Warm Up</h2>
+          <p class="text-center text-gray-600 mb-4">Let's test your encryption and decryption skills!</p>
+          <button id="quizButton1" onclick="toggleDescription('desc1', 'answer1', 'quizButton1')" class="px-4 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700">Take Quiz</button>
+          <p id="desc1" class="mt-4 text-center text-gray-600 hidden">Hint: 3 word name animal mostly seen in the street.</p>
+          <p id="encryptedKey1" class="mt-2 text-center text-gray-600 hidden">Encrypted Text: 40/</p>
+          <div id="answer1" class="hidden mt-4 w-full max-w-md">
+              <input type="text" id="encryptedText1" placeholder="Enter Encrypted Text..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+              <input type="text" id="key1" placeholder="Enter key..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+              <button onclick="decryptText(1)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 mb-4">Decrypt</button>
+              <p id="outputText1" class="mt-4 text-center text-gray-600"></p>
+              <input type="text" id="userAnswer1" placeholder="Enter your answer..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+              <button onclick="submitAnswer(1)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700">Submit Answer</button>
+          </div>
+      </div>
+
+        <!-- Card 2  correct answer - dog -->
+        <div id="card2" class="flex flex-col items-center bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all w-full max-w-2xl">
+          <h2 class="text-xl font-semibold mb-2">Quiz 2: Warm Up</h2>
+          <p class="text-center text-gray-600 mb-4">Let's warm up once more</p>
+          <button id="quizButton2" onclick="toggleDescription('desc2', 'answer2', 'quizButton2')" class="px-4 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 opacity-50 cursor-not-allowed" disabled>Take Quiz</button>
+          <p id="desc2" class="mt-4 text-center text-gray-600 hidden">Hint: 3-word name animal also known as man's best friend.</p>
+          <p id="encryptedKey2" class="mt-2 text-center text-gray-600 hidden">Encrypted Text: 6|#</p>
+          <div id="answer2" class="hidden mt-4 w-full max-w-md">
+              <input type="text" id="encryptedText2" placeholder="Enter Encrypted Text..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+              <input type="text" id="key2" placeholder="Enter key..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+              <button onclick="decryptText(2)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 mb-4">Decrypt</button>
+              <p id="outputText2" class="mt-4 text-center text-gray-600"></p>
+              <input type="text" id="userAnswer2" placeholder="Enter your answer..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+              <button onclick="submitAnswer(2)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700">Submit Answer</button>
+          </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div id="card3" class="flex flex-col items-center bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all w-full max-w-2xl">
+        <h2 class="text-xl font-semibold mb-2">Quiz 3: Rising Difficulty</h2>
+        <p class="text-center text-gray-600 mb-4">Feel the heat! These codes are more tricky, but you’ve got this!</p>
+        <button id="quizButton3" onclick="toggleDescription('desc3', 'answer3', 'quizButton3')" class="px-4 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 opacity-50 cursor-not-allowed" disabled>Take Quiz</button>
+        <p id="desc3" class="mt-4 text-center text-gray-600 hidden">Hint: Ferrari</p>
+        <p id="encryptedKey3" class="mt-2 text-center text-gray-600 hidden">Encrypted Text: %|.>8</p>
+        <div id="answer3" class="hidden mt-4 w-full max-w-md">
+            <input type="text" id="encryptedText3" placeholder="Enter Encrypted Text..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <input type="text" id="key3" placeholder="Enter key..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="decryptText(3)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 mb-4">Decrypt</button>
+            <p id="outputText3" class="mt-4 text-center text-gray-600"></p>
+            <input type="text" id="userAnswer3" placeholder="Enter your answer..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="submitAnswer(3)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700">Submit Answer</button>
+        </div>
+    </div>
+  
+      <!-- Card 4 -->
+      <div id="card4" class="flex flex-col items-center bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all w-full max-w-2xl">
+        <h2 class="text-xl font-semibold mb-2">Quiz 4: Up the Ante</h2>
+        <p class="text-center text-gray-600 mb-4">The stakes are higher now! Solve the code and prove your skills are growing.</p>
+        <button id="quizButton4" onclick="toggleDescription('desc4', 'answer4', 'quizButton4')" class="px-4 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 opacity-50 cursor-not-allowed" disabled>Take Quiz</button>
+        <p id="desc4" class="mt-4 text-center text-gray-600 hidden">Hint: too big - 5 letter</p>
+        <p id="encryptedKey4" class="mt-2 text-center text-gray-600 hidden">Encrypted Text: /B2&#</p>
+        <div id="answer4" class="hidden mt-4 w-full max-w-md">
+            <input type="text" id="encryptedText4" placeholder="Enter Encrypted Text..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <input type="text" id="key4" placeholder="Enter key..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="decryptText(4)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 mb-4">Decrypt</button>
+            <p id="outputText4" class="mt-4 text-center text-gray-600"></p>
+            <input type="text" id="userAnswer4" placeholder="Enter your answer..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="submitAnswer(4)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700">Submit Answer</button>
+        </div>
+    </div>
+  
+      <!-- Card 5 -->
+      <div id="card5" class="flex flex-col items-center bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all w-full max-w-2xl">
+        <h2 class="text-xl font-semibold mb-2">Quiz 5: Pushing Limits</h2>
+        <p class="text-center text-gray-600 mb-4">Get ready to face some real challenges! Time to push your limits with tough codes.</p>
+        <button id="quizButton5" onclick="toggleDescription('desc5', 'answer5', 'quizButton5')" class="px-4 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 opacity-50 cursor-not-allowed" disabled>Take Quiz</button>
+        <p id="desc5" class="mt-4 text-center text-gray-600 hidden">Hint: taas nga pusil - 9 letter</p>
+        <p id="encryptedKey5" class="mt-2 text-center text-gray-600 hidden">Encrypted Text: 60-B{##0{</p>
+        <div id="answer5" class="hidden mt-4 w-full max-w-md">
+            <input type="text" id="encryptedText5" placeholder="Enter Encrypted Text..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <input type="text" id="key5" placeholder="Enter key..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="decryptText(5)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 mb-4">Decrypt</button>
+            <p id="outputText5" class="mt-4 text-center text-gray-600"></p>
+            <input type="text" id="userAnswer5" placeholder="Enter your answer..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="submitAnswer(5)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700">Submit Answer</button>
+        </div>
+    </div>
+  
+      <!-- Card 6 -->
+      <div id="card6" class="flex flex-col items-center bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all w-full max-w-2xl">
+        <h2 class="text-xl font-semibold mb-2">Quiz 6: The Heat is On</h2>
+        <p class="text-center text-gray-600 mb-4">Things are getting intense! Only those with sharp minds can solve these next ones!</p>
+        <button id="quizButton6" onclick="toggleDescription('desc6', 'answer6', 'quizButton6')" class="px-4 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 opacity-50 cursor-not-allowed" disabled>Take Quiz</button>
+        <p id="desc6" class="mt-4 text-center text-gray-600 hidden">Hint: Lamborghini</p>
+        <p id="encryptedKey6" class="mt-2 text-center text-gray-600 hidden">Encrypted Text: 2B--</p>
+        <div id="answer6" class="hidden mt-4 w-full max-w-md">
+            <input type="text" id="encryptedText6" placeholder="Enter Encrypted Text..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <input type="text" id="key6" placeholder="Enter key..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="decryptText(6)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 mb-4">Decrypt</button>
+            <p id="outputText6" class="mt-4 text-center text-gray-600"></p>
+            <input type="text" id="userAnswer6" placeholder="Enter your answer..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="submitAnswer(6)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700">Submit Answer</button>
+        </div>
+    </div>
+  
+      <!-- Card 7 -->
+      <div id="card7" class="flex flex-col items-center bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all w-full max-w-2xl">
+        <h2 class="text-xl font-semibold mb-2">Quiz 7: Cipher Master</h2>
+        <p class="text-center text-gray-600 mb-4">Only a true cipher master can conquer this quiz. Are you up for the challenge?</p>
+        <button id="quizButton7" onclick="toggleDescription('desc7', 'answer7', 'quizButton7')" class="px-4 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 opacity-50 cursor-not-allowed" disabled>Take Quiz</button>
+        <p id="desc7" class="mt-4 text-center text-gray-600 hidden">Hint: 130 km/h</p>
+        <p id="encryptedKey7" class="mt-2 text-center text-gray-600 hidden">Encrypted Text: 4%88/0%</p>
+        <div id="answer7" class="hidden mt-4 w-full max-w-md">
+            <input type="text" id="encryptedText7" placeholder="Enter Encrypted Text..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <input type="text" id="key7" placeholder="Enter key..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="decryptText(7)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 mb-4">Decrypt</button>
+            <p id="outputText7" class="mt-4 text-center text-gray-600"></p>
+            <input type="text" id="userAnswer7" placeholder="Enter your answer..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="submitAnswer(7)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700">Submit Answer</button>
+        </div>
+    </div>
+  
+      <!-- Card 8 -->
+      <div id="card8" class="flex flex-col items-center bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all w-full max-w-2xl">
+        <h2 class="text-xl font-semibold mb-2">Quiz 8: Almost There</h2>
+        <p class="text-center text-gray-600 mb-4">You're on fire! Just a few more tough puzzles to go before the final test.</p>
+        <button id="quizButton8" onclick="toggleDescription('desc8', 'answer8', 'quizButton8')" class="px-4 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 opacity-50 cursor-not-allowed" disabled>Take Quiz</button>
+        <p id="desc8" class="mt-4 text-center text-gray-600 hidden">Hint: 6 letter animal name<p>
+        <p id="encryptedKey8" class="mt-2 text-center text-gray-600 hidden">Encrypted Text: "|B__0</p>
+        <div id="answer8" class="hidden mt-4 w-full max-w-md">
+            <input type="text" id="encryptedText8" placeholder="Enter Encrypted Text..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <input type="text" id="key8" placeholder="Enter key..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="decryptText(8)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 mb-4">Decrypt</button>
+            <p id="outputText8" class="mt-4 text-center text-gray-600"></p>
+            <input type="text" id="userAnswer8" placeholder="Enter your answer..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="submitAnswer(8)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700">Submit Answer</button>
+        </div>
+    </div>
+  
+      <!-- Card 9 -->
+      <div id="card9" class="flex flex-col items-center bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all w-full max-w-2xl">
+        <h2 class="text-xl font-semibold mb-2">Quiz 9: Ultimate Test</h2>
+        <p class="text-center text-gray-600 mb-4">This is the ultimate test for your cipher knowledge. Ready to prove you're a pro?</p>
+        <button id="quizButton9" onclick="toggleDescription('desc9', 'answer9', 'quizButton9')" class="px-4 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 opacity-50 cursor-not-allowed" disabled>Take Quiz</button>
+        <p id="desc9" class="mt-4 text-center text-gray-600 hidden">Hint: 8 letter animal name<p>
+        <p id="encryptedKey9" class="mt-2 text-center text-gray-600 hidden">Encrypted Text: 40:J20.0</p>
+        <div id="answer9" class="hidden mt-4 w-full max-w-md">
+            <input type="text" id="encryptedText9" placeholder="Enter Encrypted Text..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <input type="text" id="key9" placeholder="Enter key..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="decryptText(9)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 mb-4">Decrypt</button>
+            <p id="outputText9" class="mt-4 text-center text-gray-600"></p>
+            <input type="text" id="userAnswer9" placeholder="Enter your answer..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="submitAnswer(9)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700">Submit Answer</button>
+        </div>
+    </div>
+  
+      <!-- Card 10 -->
+      <div id="card10" class="flex flex-col items-center bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all w-full max-w-2xl">
+        <h2 class="text-xl font-semibold mb-2">Quiz 10: Master of Ciphers</h2>
+        <p class="text-center text-gray-600 mb-4">The final showdown! Only a true Cipher Master can solve this one. Ready to claim your title?</p>
+        <button id="quizButton10" onclick="toggleDescription('desc10', 'answer10', 'quizButton10')" class="px-4 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 opacity-50 cursor-not-allowed" disabled>Take Quiz</button>
+        <p id="desc10" class="mt-4 text-center text-gray-600 hidden">Hint: 7 letter animal name<p>
+        <p id="encryptedKey10" class="mt-2 text-center text-gray-600 hidden">Encrypted Text: D0"B&/0</p>
+        <div id="answer10" class="hidden mt-4 w-full max-w-md">
+            <input type="text" id="encryptedText10" placeholder="Enter Encrypted Text..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <input type="text" id="key10" placeholder="Enter key..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="decryptText(10)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700 mb-4">Decrypt</button>
+            <p id="outputText10" class="mt-4 text-center text-gray-600"></p>
+            <input type="text" id="userAnswer10" placeholder="Enter your answer..." class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+            <button onclick="submitAnswer(10)" class="px-6 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700">Submit Answer</button>
+        </div class ="mb-24">
+    </div>
+        <!-- Sucess Modal -->
+    <div id="successModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+      <div class="bg-white rounded-lg p-6 shadow-lg text-center">
+        <!-- Check Icon -->
+        <div class="flex justify-center items-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <!-- Text -->
+        <h2 class="text-xl font-semibold mb-2">Correct!</h2>
+        <p class="mb-4">Proceed to the next quiz.</p>
+      </div>
+    </div>
+    <!-- Incorrect Answer Modal -->
+    <div id="incorrectModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+      <div class="bg-white rounded-lg p-6 shadow-lg text-center">
+        <!-- Cross Icon -->
+        <div class="flex justify-center items-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
+        <!-- Text -->
+        <h2 class="text-xl font-semibold mb-2">Incorrect Answer</h2>
+        <p class="mb-4">Please try again!</p>
+      </div>
+    </div>
+<!-- All Quizzes Completed Modal -->
+<div id="allCompletedModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+  <div class="bg-white rounded-lg p-6 shadow-lg text-center">
+    <h2 class="text-xl font-semibold mb-2">Congratulations!</h2>
+    <p class="mb-4">You've completed all the quizzes.</p>
+    <button onclick="closeAllCompletedModal()" class="px-4 py-2 bg-cyan-900 text-white rounded-lg hover:bg-cyan-700">Close</button>
+  </div>
+</div>
+
+<!-- Confetti Canvas -->
+<canvas id="confettiCanvas" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;"></canvas>
+
+    </div>
+    </div>
+  </div>
+</body>
+
+</html>
